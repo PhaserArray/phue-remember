@@ -103,6 +103,14 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# vscode
+.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # phue config
 config.python_hue
 
