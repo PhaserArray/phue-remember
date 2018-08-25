@@ -17,18 +17,6 @@ def connect_bridge():
             b = Bridge(ip, config_file_path="config.python_hue")
         return b
 
-# {
-#     "id": 
-#     {
-#         xy = 0 # [x, y] color value
-#         ct = 0 # color temperature
-#         hs = 0 # [hue, saturation]
-#         br = 0 # brightness
-#         mode = hs|xy|ct # light mode
-#         reachable = True # whether the light was reachable the last time
-#     }  
-# }
-
 def monitor(b):
     last_lighting = {}
     if isfile("last_lighting.json"):
