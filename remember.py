@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from phue import Bridge, PhueRegistrationException
 import json
 from os.path import isfile
