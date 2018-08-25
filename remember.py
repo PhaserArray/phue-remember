@@ -35,7 +35,6 @@ def monitor(b):
         with open("last_lighting.json") as last_lighting_file:
             last_lighting = json.load(last_lighting_file)
     while True:
-        print("here")
         lights = b.get_light_objects()
         last_lighting_dirty = False
         for light in lights:
