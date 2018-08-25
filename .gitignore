@@ -116,3 +116,6 @@ config.python_hue
 
 # saved lighting
 last_lighting.json
+
+# startup script
+start.sh
