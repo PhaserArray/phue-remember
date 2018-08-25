@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# phue config
+config.python_hue
+
+# saved lighting
+last_lighting.json
