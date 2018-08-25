@@ -46,8 +46,9 @@ def monitor(b):
                 last_light["xy"] = light.xy
                 last_light["ct"] = light.colortemp
                 last_light["hs"] = [light.hue, light.saturation]
-                last_light["mode"] = light.colormode
                 last_light["br"] = light.brightness
+                last_light["on"] = light.on
+                last_light["mode"] = light.colormode
                 last_lighting_dirty = True
             else:
                 last_light = last_lighting[light_uid]
@@ -63,12 +64,14 @@ def monitor(b):
                         light.saturation = last_light["hs"][1]
                     elif last_light["mode"] == "ct":
                         light.colortemp = last_light["ct"]
+                    light.on = last_light["on"]
                 else:
                     if (last_light["xy"] != light.xy or 
                         last_light["hs"][0] != light.hue or
                         last_light["hs"][1] != light.saturation or
                         last_light["ct"] != light.colortemp or
                         last_light["br"] != light.brightness or
+                        last_light["on"] != light.on or
                         last_light["mode"] != light.colormode):
 
                         if light.colortemp == 366 and light.brightness == 254:
@@ -77,8 +80,9 @@ def monitor(b):
                         last_light["xy"] = light.xy
                         last_light["ct"] = light.colortemp
                         last_light["hs"] = [light.hue, light.saturation]
-                        last_light["mode"] = light.colormode
                         last_light["br"] = light.brightness
+                        last_light["on"] = light.on
+                        last_light["mode"] = light.colormode
                         last_lighting_dirty = True
         if last_lighting_dirty:
             with open("last_lighting.json", "w") as last_lighting_file:
