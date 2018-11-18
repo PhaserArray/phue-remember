@@ -79,7 +79,7 @@ def monitor(b):
                         last_light["mode"] != light.colormode):
 
                         # Why was this here? This is already checked for in the if
-                        # removing because this doesn't seems redundant.
+                        # removing because this seems redundant.
                         # if light.colortemp == 366 and light.brightness == 254:
                         #     continue
 
