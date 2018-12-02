@@ -83,10 +83,9 @@ def monitor(b):
                         last_light["on"] != light.on or
                         last_light["mode"] != light.colormode):
 
-                        # Why was this here? This is already checked for in the if
-                        # removing because this seems redundant.
-                        # if light.colortemp == 366 and light.brightness == 254:
-                        #     continue
+                        # Apparently this isn't redundant?
+                        if light.colortemp == 366 and light.brightness == 254:
+                            continue
 
                         log.debug("Light %s has changed, remembering..." % light_uid)
                         last_light["xy"] = light.xy
