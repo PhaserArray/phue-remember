@@ -39,6 +39,7 @@ def monitor(b):
         log.debug("Beginning monitor check, fetching lights...")
         lights = b.get_light_objects()
         last_lighting_dirty = False
+        changed_lights = False
         log.debug("Lights fetched, iterating...")
         for light in lights:
             last_light = None
@@ -71,6 +72,7 @@ def monitor(b):
                     elif last_light["mode"] == "ct":
                         light.colortemp = last_light["ct"]
                     light.on = last_light["on"]
+                    changed_lights = True
                     log.debug("%s has been changed back.")
                 else:
                     if (last_light["xy"] != light.xy or 
@@ -101,7 +103,10 @@ def monitor(b):
                 json.dump(last_lighting, last_lighting_file, indent=4)
             log.debug("The changes have been saved to file.")
         log.debug("Monitor check done, waiting for 1 second before the next.")
-        sleep(1)
+        if changed_lights:
+            sleep(10)
+        else:
+            sleep(1)
 
 if __name__ == "__main__":
     log.debug("Connecting to the bridge...")
