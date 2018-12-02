@@ -102,10 +102,11 @@ def monitor(b):
             with open("last_lighting.json", "w") as last_lighting_file:
                 json.dump(last_lighting, last_lighting_file, indent=4)
             log.debug("The changes have been saved to file.")
-        log.debug("Monitor check done, waiting for 1 second before the next.")
         if changed_lights:
+            log.debug("Monitor check done, lights changed, waiting for 10 seconds before the next.")
             sleep(10)
         else:
+            log.debug("Monitor check done, waiting for 1 second before the next.")
             sleep(1)
 
 if __name__ == "__main__":
