@@ -8,6 +8,9 @@ from phue import Bridge, PhueRegistrationException
 logging.basicConfig(filename="remember.log",
                     level=logging.DEBUG)
 log = logging.getLogger(__name__)
+console_log = logging.StreamHandler()
+console_log.setLevel = log.level
+log.addHandler(console_log)
 
 def connect_bridge():
     if isfile("config.python_hue"):
